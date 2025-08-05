@@ -1,1 +1,1 @@
-## Experiment name
+## DFA Minimization and Equivalence
