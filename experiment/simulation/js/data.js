@@ -31,12 +31,12 @@ const dfaExamples = [
           step: 1,
           description: "Remove unreachable states",
           partitions: [["q0", "q1"], ["q2"]],
-          explanation: "Remove unreachable states q3, q4. Only q0, q1, q2 are reachable from q0",
+          explanation: "Remove unreachable states q3, q4Only q0, q1, q2 are reachable from q0",
           choices: [
             {
               text: "Keep all states as they might be useful",
               correct: false,
-              explanation: "Incorrect. Unreachable states can be removed safely."
+              explanation: "Unreachable states can be removed safely."
             },
             {
               text: "Remove q3 and q4 (unreachable from start state q0)",
@@ -46,12 +46,12 @@ const dfaExamples = [
             {
               text: "Remove q1 and q2 instead",
               correct: false,
-              explanation: "Incorrect. q1 and q2 are reachable from q0."
+              explanation: "q1 and q2 are reachable from q0."
             },
             {
               text: "Remove only q4",
               correct: false,
-              explanation: "Incorrect. Both q3 and q4 are unreachable."
+              explanation: "Both q3 and q4 are unreachable."
             }
           ],
           visualState: {
@@ -69,12 +69,12 @@ const dfaExamples = [
             {
               text: "Partition into {q0,q2} and {q1}",
               correct: false,
-              explanation: "Incorrect. q0 and q2 have different accepting properties."
+              explanation: "q0 and q2 have different accepting properties."
             },
             {
               text: "Keep all states separate: {q0},{q1},{q2}",
               correct: false,
-              explanation: "Incorrect. Start by grouping states with same accepting property."
+              explanation: "Start by grouping states with same accepting property."
             },
             {
               text: "Partition into {q0,q1} and {q2}",
@@ -84,7 +84,7 @@ const dfaExamples = [
             {
               text: "All states in one partition: {q0,q1,q2}",
               correct: false,
-              explanation: "Incorrect. Must separate accepting from non-accepting states."
+              explanation: "Must separate accepting from non-accepting states."
             }
           ],
           visualState: {
@@ -102,17 +102,17 @@ const dfaExamples = [
             {
               text: "Keep {q0,q1} together as they're both non-accepting",
               correct: false,
-              explanation: "Incorrect. Being non-accepting isn't enough - they must have same transition behavior."
+              explanation: "Being non-accepting isn't enough - they must have same transition behavior."
             },
             {
               text: "Merge q1 and q2 instead",
               correct: false,
-              explanation: "Incorrect. q1 is non-accepting while q2 is accepting."
+              explanation: "q1 is non-accepting while q2 is accepting."
             },
             {
               text: "No further refinement needed",
               correct: false,
-              explanation: "Incorrect. q0 and q1 have different transition behaviors."
+              explanation: "q0 and q1 have different transition behaviors."
             },
             {
               text: "Split {q0,q1} because they go to different states on 'b'",
@@ -156,12 +156,12 @@ const dfaExamples = [
             {
               text: "Partition into {p0,p2} and {p1}",
               correct: false,
-              explanation: "Incorrect. p0 and p2 have different accepting properties."
+              explanation: "p0 and p2 have different accepting properties."
             },
             {
               text: "Keep all states separate: {p0},{p1},{p2}",
               correct: false,
-              explanation: "Incorrect. Start by grouping states with same accepting property."
+              explanation: "Start by grouping states with same accepting property."
             },
             {
               text: "Partition into {p0,p1} and {p2}",
@@ -171,7 +171,7 @@ const dfaExamples = [
             {
               text: "All states in one partition: {p0,p1,p2}",
               correct: false,
-              explanation: "Incorrect. Must separate accepting from non-accepting states."
+              explanation: "Must separate accepting from non-accepting states."
             }
           ],
           visualState: {
@@ -189,7 +189,7 @@ const dfaExamples = [
             {
               text: "Keep {p0,p1} together as they both go somewhere on 'b'",
               correct: false,
-              explanation: "Incorrect. They go to different destinations: p0→p0, p1→p2."
+              explanation: "They go to different destinations: p0→p0, p1→p2."
             },
             {
               text: "Split {p0,p1} because p0→p0 on 'b' while p1→p2 on 'b'",
@@ -199,12 +199,12 @@ const dfaExamples = [
             {
               text: "Merge p1 and p2 based on transitions",
               correct: false,
-              explanation: "Incorrect. p1 and p2 have different accepting properties."
+              explanation: "p1 and p2 have different accepting properties."
             },
             {
               text: "No refinement needed - all states are already minimal",
               correct: false,
-              explanation: "Incorrect. p0 and p1 have different transition behaviors."
+              explanation: "p0 and p1 have different transition behaviors."
             }
           ],
           visualState: {
@@ -253,17 +253,17 @@ const dfaExamples = [
             {
               text: "Partition into {q0,q1} and {q2,q3}",
               correct: false,
-              explanation: "Incorrect. q0,q1 have different accepting properties."
+              explanation: "q0,q1 have different accepting properties."
             },
             {
               text: "Keep all states separate: {q0},{q1},{q2},{q3}",
               correct: false,
-              explanation: "Incorrect. Start by grouping states with same accepting property."
+              explanation: "Start by grouping states with same accepting property."
             },
             {
               text: "Partition into {q0,q3} and {q1,q2}",
               correct: false,
-              explanation: "Incorrect. q0 and q3 have different accepting properties."
+              explanation: "q0 and q3 have different accepting properties."
             },
             {
               text: "Partition into {q0,q2} and {q1,q3}",
@@ -281,7 +281,7 @@ const dfaExamples = [
             {
               text: "Keep {q0,q2} together",
               correct: false,
-              explanation: "Incorrect. q0 goes to q1 on 'a', q2 goes to q3 on 'a'."
+              explanation: "q0 goes to q1 on 'a', q2 goes to q3 on 'a'."
             },
             {
               text: "All states are distinct: {q0},{q2},{q1},{q3}",
@@ -291,12 +291,12 @@ const dfaExamples = [
             {
               text: "Keep {q1,q3} together",
               correct: false,
-              explanation: "Incorrect. q1 stays in q1 on 'b', q3 stays in q3 on 'b', but they have different behaviors."
+              explanation: "q1 stays in q1 on 'b', q3 stays in q3 on 'b', but they have different behaviors."
             },
             {
               text: "Partition into {q0,q1} and {q2,q3}",
               correct: false,
-              explanation: "Incorrect. States should be separated by their transition patterns."
+              explanation: "States should be separated by their transition patterns."
             }
           ]
         }
@@ -330,17 +330,17 @@ const dfaExamples = [
             {
               text: "Partition into {p0} and {p1,p2}",
               correct: false,
-              explanation: "Incorrect. p1 is accepting while p2 is not."
+              explanation: "p1 is accepting while p2 is not."
             },
             {
               text: "Keep all states separate: {p0},{p1},{p2}",
               correct: false,
-              explanation: "Incorrect. Start by grouping states with same accepting property."
+              explanation: "Start by grouping states with same accepting property."
             },
             {
               text: "Keep all states together: {p0,p1,p2}",
               correct: false,
-              explanation: "Incorrect. Must separate accepting from non-accepting states."
+              explanation: "Must separate accepting from non-accepting states."
             },
             {
               text: "Partition into {p0,p2} and {p1}",
@@ -358,12 +358,12 @@ const dfaExamples = [
             {
               text: "Keep {p0,p2} together",
               correct: false,
-              explanation: "Incorrect. p0 and p2 behave differently on symbol 'b'."
+              explanation: "p0 and p2 behave differently on symbol 'b'."
             },
             {
               text: "Merge p1 with p0: {p0,p1},{p2}",
               correct: false,
-              explanation: "Incorrect. p0 and p1 have different accepting properties."
+              explanation: "p0 and p1 have different accepting properties."
             },
             {
               text: "Separate p0 and p2: {p0},{p2},{p1}",
@@ -373,7 +373,7 @@ const dfaExamples = [
             {
               text: "Merge p1 with p2: {p0},{p1,p2}",
               correct: false,
-              explanation: "Incorrect. p1 and p2 have different accepting properties."
+              explanation: "p1 and p2 have different accepting properties."
             }
           ]
         }
@@ -417,7 +417,7 @@ const dfaExamples = [
             {
               text: "Partition into {S,A} and {B,C}",
               correct: false,
-              explanation: "Incorrect. S and A have different accepting properties."
+              explanation: "S and A have different accepting properties."
             },
             {
               text: "Partition into {S,C} and {A,B}",
@@ -427,12 +427,12 @@ const dfaExamples = [
             {
               text: "Keep all states separate: {S},{A},{B},{C}",
               correct: false,
-              explanation: "Incorrect. Start by grouping states with same accepting property."
+              explanation: "Start by grouping states with same accepting property."
             },
             {
               text: "All states in one partition: {S,A,B,C}",
               correct: false,
-              explanation: "Incorrect. Must separate accepting from non-accepting states."
+              explanation: "Must separate accepting from non-accepting states."
             }
           ],
           visualState: {
@@ -450,17 +450,17 @@ const dfaExamples = [
             {
               text: "Split {S,C} because S goes to A while C goes to B",
               correct: false,
-              explanation: "Incorrect. What matters is the equivalence class of destination, not specific states."
+              explanation: "What matters is the equivalence class of destination, not specific states."
             },
             {
               text: "Merge {S,C} with {A,B}",
               correct: false,
-              explanation: "Incorrect. Accepting and non-accepting states cannot be merged."
+              explanation: "Accepting and non-accepting states cannot be merged."
             },
             {
               text: "Split S and C into separate partitions",
               correct: false,
-              explanation: "Incorrect. S and C have equivalent transition behaviors."
+              explanation: "S and C have equivalent transition behaviors."
             },
             {
               text: "Keep {S,C} together - both have same transition behavior",
@@ -483,7 +483,7 @@ const dfaExamples = [
             {
               text: "Split {A,B} because A goes to S while B goes to C",
               correct: false,
-              explanation: "Incorrect. What matters is the equivalence class of destination, not specific states."
+              explanation: "What matters is the equivalence class of destination, not specific states."
             },
             {
               text: "Keep {A,B} together - both have same transition behavior",
@@ -493,12 +493,12 @@ const dfaExamples = [
             {
               text: "Merge {A,B} with {S,C}",
               correct: false,
-              explanation: "Incorrect. Accepting and non-accepting states cannot be merged."
+              explanation: "Accepting and non-accepting states cannot be merged."
             },
             {
               text: "Split A and B into separate partitions",
               correct: false,
-              explanation: "Incorrect. A and B have equivalent transition behaviors."
+              explanation: "A and B have equivalent transition behaviors."
             }
           ],
           visualState: {
@@ -511,27 +511,27 @@ const dfaExamples = [
           step: 4,
           description: "Finalize minimization - no further partitioning possible",
           partitions: [["S", "C"], ["A", "B"]],
-          explanation: "All partitions are stable. Create minimal DFA: E = {S,C} (accepting), O = {A,B} (non-accepting)",
+          explanation: "All partitions are stableCreate minimal DFA: E = {S,C} (accepting), O = {A,B} (non-accepting)",
           choices: [
             {
               text: "Try to split partitions further",
               correct: false,
-              explanation: "Incorrect. No further splitting is possible as all states in each partition have identical behavior."
+              explanation: "No further splitting is possible as all states in each partition have identical behavior."
             },
             {
               text: "Merge the two partitions together",
               correct: false,
-              explanation: "Incorrect. Accepting and non-accepting partitions cannot be merged."
+              explanation: "Accepting and non-accepting partitions cannot be merged."
             },
             {
               text: "Since no more partitioning, partitioning done",
               correct: true,
-              explanation: "Correct! The partitions are stable and minimization is complete. Final DFA has states E and O."
+              explanation: "Correct! The partitions are stable and minimization is completeFinal DFA has states E and O."
             },
             {
               text: "Create four separate states",
               correct: false,
-              explanation: "Incorrect. The equivalent states should remain grouped in their partitions."
+              explanation: "The equivalent states should remain grouped in their partitions."
             }
           ],
           visualState: {
@@ -583,17 +583,17 @@ const dfaExamples = [
             {
               text: "Partition into {q0,q1} and {q2,q3,q4}",
               correct: false,
-              explanation: "Incorrect. q0 and q1 have different accepting properties."
+              explanation: "q0 and q1 have different accepting properties."
             },
             {
               text: "Keep all states separate: {q0},{q1},{q2},{q3},{q4}",
               correct: false,
-              explanation: "Incorrect. Start by grouping states with same accepting property."
+              explanation: "Start by grouping states with same accepting property."
             },
             {
               text: "All states in one partition: {q0,q1,q2,q3,q4}",
               correct: false,
-              explanation: "Incorrect. Must separate accepting from non-accepting states."
+              explanation: "Must separate accepting from non-accepting states."
             },
             {
               text: "Partition into {q0,q2} and {q1,q3,q4}",
@@ -616,12 +616,12 @@ const dfaExamples = [
             {
               text: "Split {q0,q2} because q0 goes to q1 while q2 goes to q3",
               correct: false,
-              explanation: "Incorrect. What matters is the equivalence class of destination, not specific states."
+              explanation: "What matters is the equivalence class of destination, not specific states."
             },
             {
               text: "Merge {q0,q2} with {q1,q3,q4}",
               correct: false,
-              explanation: "Incorrect. Accepting and non-accepting states cannot be merged."
+              explanation: "Accepting and non-accepting states cannot be merged."
             },
             {
               text: "Keep {q0,q2} together - both have same transition behavior",
@@ -631,7 +631,7 @@ const dfaExamples = [
             {
               text: "Split q0 and q2 into separate partitions",
               correct: false,
-              explanation: "Incorrect. q0 and q2 have equivalent transition behaviors."
+              explanation: "q0 and q2 have equivalent transition behaviors."
             }
           ],
           visualState: {
@@ -649,12 +649,12 @@ const dfaExamples = [
             {
               text: "Split because they go to different specific states",
               correct: false,
-              explanation: "Incorrect. What matters is the equivalence class of destination, not specific states."
+              explanation: "What matters is the equivalence class of destination, not specific states."
             },
             {
               text: "Merge {q1,q3,q4} with {q0,q2}",
               correct: false,
-              explanation: "Incorrect. Accepting and non-accepting states cannot be merged."
+              explanation: "Accepting and non-accepting states cannot be merged."
             },
             {
               text: "Keep {q1,q3,q4} together - all have same transition behavior",
@@ -664,7 +664,7 @@ const dfaExamples = [
             {
               text: "Split into separate partitions for each state",
               correct: false,
-              explanation: "Incorrect. q1, q3, and q4 all have equivalent transition behaviors."
+              explanation: "q1, q3, and q4 all have equivalent transition behaviors."
             }
           ],
           visualState: {
@@ -677,27 +677,27 @@ const dfaExamples = [
           step: 4,
           description: "Finalize minimization - no further partitioning possible",
           partitions: [["q0", "q2"], ["q1", "q3", "q4"]],
-          explanation: "All partitions are stable. Create minimal DFA: E = {q0,q2} (accepting), O = {q1,q3,q4} (non-accepting)",
+          explanation: "All partitions are stableCreate minimal DFA: E = {q0,q2} (accepting), O = {q1,q3,q4} (non-accepting)",
           choices: [
             {
               text: "Try to split partitions further",
               correct: false,
-              explanation: "Incorrect. No further splitting is possible as all states in each partition have identical behavior."
+              explanation: "No further splitting is possible as all states in each partition have identical behavior."
             },
             {
               text: "Since no more partitioning, partitioning done",
               correct: true,
-              explanation: "Correct! The partitions are stable and minimization is complete. Final DFA has states E and O."
+              explanation: "Correct! The partitions are stable and minimization is completeFinal DFA has states E and O."
             },
             {
               text: "Merge the two partitions together",
               correct: false,
-              explanation: "Incorrect. Accepting and non-accepting partitions cannot be merged."
+              explanation: "Accepting and non-accepting partitions cannot be merged."
             },
             {
               text: "Create five separate states",
               correct: false,
-              explanation: "Incorrect. The equivalent states should remain grouped in their partitions."
+              explanation: "The equivalent states should remain grouped in their partitions."
             }
           ],
           visualState: {
@@ -720,7 +720,7 @@ const dfaExamples = [
       equivalenceClasses: [["q0", "q2"], ["q1", "q3", "q4"]]
     },
     isEquivalent: true,
-    equivalenceExplanation: "Both DFAs minimize to the same 2-state DFA: accepting state E (on '0'→O, on '1'→E) and non-accepting state O (on '0'→E, on '1'→O). They recognize strings where the number of '1's has the same parity as the number of '0's."
+    equivalenceExplanation: "Both DFAs minimize to the same 2-state DFA: accepting state E (on '0'→O, on '1'→E) and non-accepting state O (on '0'→E, on '1'→O)They recognize strings where the number of '1's has the same parity as the number of '0's."
   }
 ];
 
