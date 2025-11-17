@@ -19,12 +19,17 @@ States are initially partitioned into two groups:
 This separation is necessary because accepting and non-accepting states cannot be equivalent under any circumstances.
 
 #### Step 3: Refinement Process
-The partitioning is iteratively refined by examining the transition behavior of states within each partition. Two states in the same partition can be separated if they have different transition destinations for any input symbol.
+#### Step 3: Refinement Process (concise)
+Refinement splits a partition when two states in it behave differently for some input symbol. For each state, build a short transition-profile: the tuple of partition-ids reached by its transitions on each alphabet symbol (use a special marker for missing/unreachable transitions). States with identical profiles remain together; states with different profiles are separated. Repeat until a complete pass produces no splits.
 
-**Partition Refinement Rules:**
-- For each partition P and input symbol σ, examine where states in P transition on σ
-- If states in P transition to different partitions on σ, they must be separated
-- Continue until no further refinement is possible (fixed point reached)
+Compact rule:
+- For each partition P, group states by their transition-profile — the tuple of partition-ids reachable on every symbol. Replace P with the groups formed by identical profiles. Stop when a pass makes no changes.
+
+Tiny example (one pass):
+- Alphabet {0,1}; Accepting = {C}; Non-accepting = {A,B,D}
+- If profiles are A=(2,1), B=(2,2), D=(1,1) w.r.t. current partition ids, then P2 splits into {A}, {B}, {D}.
+
+Why this works: if two states always move to states in the same partitions for every symbol, then they are indistinguishable up to that round of refinement; repeating ensures we capture distinctions of all finite strings and therefore preserves language equivalence. Advanced implementations such as Hopcroft's algorithm perform equivalent splitting using a more efficient order of refinements.
 
 #### Step 4: Construct Minimal DFA
 The final partitions represent the states of the minimal DFA. Each partition becomes a single state in the minimized automaton, with transitions defined based on the original DFA's behavior.
