@@ -844,6 +844,69 @@ class AnimationHelper {
  */
 class UIHelper {
   static showMessage(message, type = 'info', duration = 3000) {
+    // For errors show a modal popup so the user notices the feedback.
+    if (type === 'error') {
+      const overlay = document.createElement('div');
+      overlay.style.position = 'fixed';
+      overlay.style.top = '0';
+      overlay.style.left = '0';
+      overlay.style.width = '100%';
+      overlay.style.height = '100%';
+      overlay.style.background = 'rgba(0,0,0,0.45)';
+      overlay.style.display = 'flex';
+      overlay.style.alignItems = 'center';
+      overlay.style.justifyContent = 'center';
+      overlay.style.zIndex = '9999';
+
+      const dialog = document.createElement('div');
+      dialog.style.background = '#fff';
+      dialog.style.padding = '18px';
+      dialog.style.borderRadius = '8px';
+      dialog.style.maxWidth = '520px';
+      dialog.style.width = '90%';
+      dialog.style.boxShadow = '0 8px 24px rgba(0,0,0,0.2)';
+      dialog.style.textAlign = 'left';
+
+      const title = document.createElement('h3');
+      title.textContent = 'Incorrect';
+      title.style.margin = '0 0 8px 0';
+      title.style.color = '#b91c1c';
+
+      const msg = document.createElement('p');
+      msg.textContent = message;
+      msg.style.margin = '0 0 12px 0';
+      msg.style.color = '#111827';
+
+      const okBtn = document.createElement('button');
+      okBtn.textContent = 'OK';
+      okBtn.style.padding = '8px 14px';
+      okBtn.style.background = '#ef4444';
+      okBtn.style.color = '#fff';
+      okBtn.style.border = 'none';
+      okBtn.style.borderRadius = '4px';
+      okBtn.style.cursor = 'pointer';
+
+      okBtn.addEventListener('click', () => {
+        if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      });
+
+      dialog.appendChild(title);
+      dialog.appendChild(msg);
+      dialog.appendChild(okBtn);
+      overlay.appendChild(dialog);
+      document.body.appendChild(overlay);
+
+      // Auto-dismiss after duration if provided
+      if (duration && duration > 0) {
+        setTimeout(() => {
+          if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+        }, duration + 800);
+      }
+
+      return;
+    }
+
+    // Non-error messages use transient toasts
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${type}`;
     messageDiv.textContent = message;
@@ -855,7 +918,7 @@ class UIHelper {
     setTimeout(() => {
       messageDiv.style.opacity = '0';
       setTimeout(() => {
-        document.body.removeChild(messageDiv);
+        if (messageDiv.parentNode) document.body.removeChild(messageDiv);
       }, 300);
     }, duration);
   }
