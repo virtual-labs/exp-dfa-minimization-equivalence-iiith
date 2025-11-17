@@ -1,0 +1,101 @@
+
+/home/runner/work/exp-dfa-minimization-equivalence-iiith/exp-dfa-minimization-equivalence-iiith/experiment/simulation/js/data.js
+  817:38  warning  'module' is not defined  no-undef
+  818:3   warning  'module' is not defined  no-undef
+
+/home/runner/work/exp-dfa-minimization-equivalence-iiith/exp-dfa-minimization-equivalence-iiith/experiment/simulation/js/helper.js
+  112:13  warning  'arcStartX' is assigned a value but never used  no-unused-vars
+  113:13  warning  'arcStartY' is assigned a value but never used  no-unused-vars
+  938:36  warning  'index' is defined but never used               no-unused-vars
+
+/home/runner/work/exp-dfa-minimization-equivalence-iiith/exp-dfa-minimization-equivalence-iiith/experiment/simulation/js/interactive.js
+     3:7   warning  'InteractiveController' is defined but never used           no-unused-vars
+    32:31  warning  'CanvasHelper' is not defined                               no-undef
+    39:36  warning  'CanvasHelper' is not defined                               no-undef
+    68:18  warning  'dfaExamples' is not defined                                no-undef
+    79:21  warning  'dfaExamples' is not defined                                no-undef
+    87:5   warning  'DFAAnalyzer' is not defined                                no-undef
+    88:5   warning  'DFAAnalyzer' is not defined                                no-undef
+   137:34  warning  'DFAAnalyzer' is not defined                                no-undef
+   156:21  warning  'dfaExamples' is not defined                                no-undef
+   196:35  warning  'index' is defined but never used                           no-unused-vars
+   227:21  warning  'dfaExamples' is not defined                                no-undef
+   236:11  warning  'highlightedPartitions' is assigned a value but never used  no-unused-vars
+   285:23  warning  'dfaExamples' is not defined                                no-undef
+   372:23  warning  'dfaExamples' is not defined                                no-undef
+   403:44  warning  'UIHelper' is not defined                                   no-undef
+   404:7   warning  'UIHelper' is not defined                                   no-undef
+   406:7   warning  'swal' is not defined                                       no-undef
+   418:21  warning  'dfaExamples' is not defined                                no-undef
+   451:21  warning  'minimizationChoices' is not defined                        no-undef
+   466:31  warning  'DFAAnalyzer' is not defined                                no-undef
+   469:23  warning  'minimizationChoices' is not defined                        no-undef
+   492:23  warning  'minimizationChoices' is not defined                        no-undef
+   517:11  warning  'example' is assigned a value but never used                no-unused-vars
+   517:21  warning  'dfaExamples' is not defined                                no-undef
+   524:21  warning  'dfaExamples' is not defined                                no-undef
+   546:31  warning  'DFAAnalyzer' is not defined                                no-undef
+   568:40  warning  'dfaExamples' is not defined                                no-undef
+   568:80  warning  'dfaExamples' is not defined                                no-undef
+   584:29  warning  'DFAAnalyzer' is not defined                                no-undef
+   607:21  warning  'dfaExamples' is not defined                                no-undef
+   617:31  warning  'DFAAnalyzer' is not defined                                no-undef
+   635:7   warning  'UIHelper' is not defined                                   no-undef
+   643:7   warning  'UIHelper' is not defined                                   no-undef
+   652:21  warning  'dfaExamples' is not defined                                no-undef
+   655:22  warning  'DFAAnalyzer' is not defined                                no-undef
+   656:22  warning  'DFAAnalyzer' is not defined                                no-undef
+   660:5   warning  'DFAAnalyzer' is not defined                                no-undef
+   661:5   warning  'DFAAnalyzer' is not defined                                no-undef
+   708:5   warning  'swal' is not defined                                       no-undef
+   734:5   warning  'swal' is not defined                                       no-undef
+   752:18  warning  'hints' is not defined                                      no-undef
+   754:18  warning  'hints' is not defined                                      no-undef
+   756:18  warning  'hints' is not defined                                      no-undef
+   758:18  warning  'hints' is not defined                                      no-undef
+   761:5   warning  'swal' is not defined                                       no-undef
+   777:25  warning  'dfaExamples' is not defined                                no-undef
+   779:35  warning  'DFAAnalyzer' is not defined                                no-undef
+   785:23  warning  'dfaExamples' is not defined                                no-undef
+   870:21  warning  'dfaExamples' is not defined                                no-undef
+   885:21  warning  'dfaExamples' is not defined                                no-undef
+   954:3   warning  Duplicate name 'updatePhaseDisplay'                         no-dupe-class-members
+  1047:21  warning  'dfaExamples' is not defined                                no-undef
+  1051:5   warning  'swal' is not defined                                       no-undef
+  1078:54  warning  'dfaExamples' is not defined                                no-undef
+  1085:5   warning  'interactiveController' is defined but never used           no-unused-vars
+
+/home/runner/work/exp-dfa-minimization-equivalence-iiith/exp-dfa-minimization-equivalence-iiith/experiment/simulation/js/main.js
+    6:5   warning  'dfaAStep' is assigned a value but never used        no-unused-vars
+    7:5   warning  'dfaBStep' is assigned a value but never used        no-unused-vars
+    9:5   warning  'selectedChoice' is assigned a value but never used  no-unused-vars
+   11:5   warning  'dfaACompleted' is assigned a value but never used   no-unused-vars
+   12:5   warning  'dfaBCompleted' is assigned a value but never used   no-unused-vars
+  168:7   warning  'swal' is not defined                                no-undef
+  179:10  warning  'getCurrentExample' is defined but never used        no-unused-vars
+  180:12  warning  'dfaExamples' is not defined                         no-undef
+  183:10  warning  'getCurrentPhase' is defined but never used          no-unused-vars
+  187:10  warning  'getScore' is defined but never used                 no-unused-vars
+  191:10  warning  'isInitialized' is defined but never used            no-unused-vars
+  246:9   warning  'swal' is not defined                                no-undef
+  425:5   warning  'boo' is assigned a value but never used             no-unused-vars
+  445:23  warning  'InteractiveController' is not defined               no-undef
+
+/home/runner/work/exp-dfa-minimization-equivalence-iiith/exp-dfa-minimization-equivalence-iiith/experiment/simulation/js/main_new.js
+   73:5   warning  'visualizeDFA' is not defined  no-undef
+   74:5   warning  'visualizeDFA' is not defined  no-undef
+  388:13  warning  'Swal' is not defined          no-undef
+
+/home/runner/work/exp-dfa-minimization-equivalence-iiith/exp-dfa-minimization-equivalence-iiith/experiment/simulation/js/verify_examples.js
+  12:3   warning  'dfaExamples' is not defined  no-undef
+  15:20  warning  'DFAAnalyzer' is not defined  no-undef
+  34:22  warning  'DFAAnalyzer' is not defined  no-undef
+  35:22  warning  'DFAAnalyzer' is not defined  no-undef
+
+/home/runner/work/exp-dfa-minimization-equivalence-iiith/exp-dfa-minimization-equivalence-iiith/experiment/simulation/mobile_detection.js
+  393:7   warning  'mobileDetection' is assigned a value but never used  no-unused-vars
+  396:38  warning  'module' is not defined                               no-undef
+  397:3   warning  'module' is not defined                               no-undef
+
+✖ 84 problems (0 errors, 84 warnings)
+

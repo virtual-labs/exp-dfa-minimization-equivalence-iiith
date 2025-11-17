@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DFA Minimisation and Equivalence - Automata Theory</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/interactive.css">
+  <script src="mobile_detection.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Quick Guide Section -->
+    <div class="guide-container">
+      <div class="guide-header">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 8v4M12 16h.01"></path>
+        </svg>
+        <h2>Quick Guide</h2>
+      </div>
+      <div class="guide-steps">
+        <div class="guide-step">
+          <div class="step-number purple">1</div>
+          <div class="step-text">Choose "Change DFAs" to select different DFA pairs</div>
+        </div>
+        <div class="guide-step">
+          <div class="step-number blue">2</div>
+          <div class="step-text">Alternate between DFA A and DFA B minimization steps</div>
+        </div>
+        <div class="guide-step">
+          <div class="step-number green">3</div>
+          <div class="step-text">Select correct partitioning choices from 4 options</div>
+        </div>
+        <div class="guide-step">
+          <div class="step-number red">4</div>
+          <div class="step-text">Compare final minimized DFAs for equivalence</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Panels -->
+    <div class="main-panels">
+      <!-- Left DFA A Minimization Steps Panel -->
+      <div class="panel steps-panel steps-panel-left">
+        <h3 class="panel-title">DFA A Minimization</h3>
+        <div class="current-derivation-indicator">
+          <div id="current_step_info_left" class="current-derivation">
+            DFA A Partitioning Steps
+          </div>
+        </div>
+        <div class="trace-container">
+          <ul id="minimization_steps_list_left">
+            <!-- Will be populated by JavaScript -->
+          </ul>
+        </div>
+      </div>
+
+      <!-- Main Experiment Area -->
+      <div class="panel experiment-panel">
+        <!-- Controls (horizontal at the top) -->
+        <div class="controls-container">
+          <div class="controls-title">Controls:</div>
+          <div class="horizontal-controls">
+            <button id="change_dfas" class="button purple">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"></path>
+              </svg>
+              Change DFAs
+            </button>
+            <button id="reset_experiment" class="button blue">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="1 4 1 10 7 10"></polyline>
+                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+              </svg>
+              Reset
+            </button>
+            <button id="prev_step" class="button green">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+              Previous Step
+            </button>
+            <button id="show_hint" class="button blue">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 8v4M12 16h.01"></path>
+              </svg>
+              Show Hint
+            </button>
+            <button id="auto_step" class="button red">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+              Auto Step
+            </button>
+          </div>
+        </div>
+
+        <!-- Current Action Display -->
+        <div class="shared-input-container">
+          <div class="input-string-label">Current Action:</div>
+          <div id="current_action_container">
+            <div id="current_action_text" class="input-string">Choose partitioning step for DFA A</div>
+          </div>
+        </div>
+
+        <!-- Interactive Action Selection -->
+        <div class="production-rules-section">
+          <h4 class="section-title">Choose the correct next step:</h4>
+          <div id="action_choices_container" class="production-rules">
+            <!-- Will be populated by JavaScript with 4 specific options -->
+          </div>
+        </div>
+
+        <!-- Parallel DFA Visualizations Container -->
+        <div class="parallel-derivations-container">
+          <!-- Left DFA A -->
+          <div class="derivation-column">
+            <div class="derivation-type-container">
+              <div id="dfa_type_left" class="derivation-type">DFA A</div>
+            </div>
+            
+            <div class="parse-tree-container">
+              <canvas id="dfa_canvas_left" width="800" height="500"></canvas>
+            </div>
+          </div>
+
+          <!-- Right DFA B -->
+          <div class="derivation-column">
+            <div class="derivation-type-container">
+              <div id="dfa_type_right" class="derivation-type">DFA B</div>
+            </div>
+            
+            <div class="parse-tree-container">
+              <canvas id="dfa_canvas_right" width="800" height="500"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress and Score Display -->
+        <div class="progress-container">
+          <div class="progress-item">
+            <span class="progress-label">Score:</span>
+            <span id="score_display" class="progress-value">0</span>
+          </div>
+          <div class="progress-item">
+            <span class="progress-label">Current Turn:</span>
+            <span id="current_turn_display" class="progress-value">DFA A</span>
+          </div>
+          <div class="progress-item">
+            <span class="progress-label">Phase:</span>
+            <span id="phase_display" class="progress-value">Minimization</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right DFA B Minimization Steps Panel -->
+      <div class="panel steps-panel steps-panel-right">
+        <h3 class="panel-title">DFA B Minimization</h3>
+        <div class="current-derivation-indicator">
+          <div id="current_step_info_right" class="current-derivation">
+            DFA B Partitioning Steps
+          </div>
+        </div>
+        <div class="trace-container">
+          <ul id="minimization_steps_list_right">
+            <!-- Will be populated by JavaScript -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/helper.js"></script>
+  <script src="js/interactive.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/verify_examples.js"></script>
+<script src="../assets/js/iframeResize.js"></script>
+        
+        </body>
+</html>

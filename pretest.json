@@ -1,0 +1,158 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "What is the primary purpose of DFA minimization?",
+      "answers": {
+        "a": "To make the DFA accept more strings",
+        "b": "To reduce the number of states while preserving the accepted language",
+        "c": "To convert the DFA to a different type of automaton",
+        "d": "To increase the speed of state transitions"
+      },
+      "explanations": {
+        "a": "Incorrect. DFA minimization does not change the language accepted by the automaton.",
+        "b": "Correct. DFA minimization eliminates redundant states to create the smallest possible DFA that accepts the same language as the original.",
+        "c": "Incorrect. Minimization keeps the automaton as a DFA; it doesn't convert it to another type.",
+        "d": "Incorrect. While a smaller DFA might be faster, the primary purpose is state reduction, not speed optimization."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What types of states are removed first during DFA minimization?",
+      "answers": {
+        "a": "Accepting states",
+        "b": "States with the most transitions",
+        "c": "Unreachable states",
+        "d": "States with self-loops"
+      },
+      "explanations": {
+        "a": "Incorrect. Accepting states are essential for defining the language and cannot be arbitrarily removed.",
+        "b": "Incorrect. The number of transitions does not determine which states should be removed.",
+        "c": "Correct. Unreachable states are those that cannot be reached from the start state and can be safely eliminated since they don't affect language recognition.",
+        "d": "Incorrect. Self-loops don't determine whether a state should be removed; unreachability does."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "In the initial partitioning step of DFA minimization, how are states grouped?",
+      "answers": {
+        "a": "By the number of incoming transitions",
+        "b": "By their position in the state diagram",
+        "c": "Into accepting and non-accepting states",
+        "d": "Randomly into equal-sized groups"
+      },
+      "explanations": {
+        "a": "Incorrect. The number of transitions is not the basis for initial partitioning.",
+        "b": "Incorrect. Physical position in diagrams is irrelevant to the minimization algorithm.",
+        "c": "Correct. The initial partitioning separates accepting states from non-accepting states because these two types can never be equivalent.",
+        "d": "Incorrect. Partitioning is systematic, not random, and groups don't need to be equal-sized."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Two states can be merged in DFA minimization if they:",
+      "answers": {
+        "a": "Have the same state name",
+        "b": "Are both accepting or both non-accepting",
+        "c": "Have identical transition behavior for all input symbols",
+        "d": "Are connected by a transition"
+      },
+      "explanations": {
+        "a": "Incorrect. State names are arbitrary labels and don't determine equivalence.",
+        "b": "Incorrect. Having the same accepting property is necessary but not sufficient for merging states.",
+        "c": "Correct. States can be merged only if they have identical transition behavior for all input symbols AND the same accepting property.",
+        "d": "Incorrect. Being connected by transitions doesn't make states equivalent."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What does it mean for two DFAs to be equivalent?",
+      "answers": {
+        "a": "They have the same number of states",
+        "b": "They have identical state transition diagrams",
+        "c": "They accept exactly the same language",
+        "d": "They use the same alphabet"
+      },
+      "explanations": {
+        "a": "Incorrect. Two DFAs can be equivalent even with different numbers of states if one has redundant states.",
+        "b": "Incorrect. DFAs can be equivalent even with different internal structures.",
+        "c": "Correct. Two DFAs are equivalent if and only if they accept exactly the same set of strings (the same language).",
+        "d": "Incorrect. Using the same alphabet is necessary for comparison but doesn't guarantee equivalence."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "In partition refinement, when must two states in the same partition be separated?",
+      "answers": {
+        "a": "When they have different state names",
+        "b": "When they transition to states in different partitions on some input symbol",
+        "c": "When they have different numbers of outgoing transitions",
+        "d": "When they are not adjacent in the state diagram"
+      },
+      "explanations": {
+        "a": "Incorrect. State names are just labels and don't affect the minimization process.",
+        "b": "Correct. If two states transition to different partitions on any input symbol, they have different behaviors and must be separated.",
+        "c": "Incorrect. The number of transitions doesn't matter; what matters is where the transitions lead.",
+        "d": "Incorrect. Physical adjacency in diagrams is irrelevant to the algorithm."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What is the time complexity of the standard DFA minimization algorithm?",
+      "answers": {
+        "a": "O(n) where n is the number of states",
+        "b": "O(n log n) where n is the number of states",
+        "c": "O(kn²) where n is the number of states and k is the alphabet size",
+        "d": "O(2ⁿ) where n is the number of states"
+      },
+      "explanations": {
+        "a": "Incorrect. Linear time is too fast for the partition refinement process.",
+        "b": "Incorrect. This is the complexity of optimized algorithms like Hopcroft's, not the standard algorithm.",
+        "c": "Correct. The standard minimization algorithm has O(kn²) time complexity due to the iterative partition refinement process.",
+        "d": "Incorrect. Exponential complexity would be impractical for this problem."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "Which property must be preserved during DFA minimization?",
+      "answers": {
+        "a": "The exact state names",
+        "b": "The number of transitions",
+        "c": "The accepted language",
+        "d": "The visual layout of the state diagram"
+      },
+      "explanations": {
+        "a": "Incorrect. State names can change during minimization; they're just labels.",
+        "b": "Incorrect. The number of transitions typically decreases during minimization.",
+        "c": "Correct. The fundamental requirement is that the minimized DFA must accept exactly the same language as the original DFA.",
+        "d": "Incorrect. Visual layout is irrelevant to the mathematical properties of the automaton."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "How can you verify that two DFAs are equivalent?",
+      "answers": {
+        "a": "Count their states and compare the numbers",
+        "b": "Check if they have the same start state name",
+        "c": "Minimize both DFAs and compare their structure",
+        "d": "Test them on a few sample strings"
+      },
+      "explanations": {
+        "a": "Incorrect. DFAs with different state counts can still be equivalent if one has redundant states.",
+        "b": "Incorrect. Start state names are arbitrary labels and don't determine equivalence.",
+        "c": "Correct. The most reliable method is to minimize both DFAs and check if the minimized forms are structurally identical (isomorphic).",
+        "d": "Incorrect. Testing on sample strings cannot prove equivalence since languages may be infinite."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    }
+  ]
+}
