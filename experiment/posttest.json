@@ -2,38 +2,157 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "After completing DFA minimization, what indicates that the process was successful?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "All states have been removed",
+        "b": "No further partition refinement is possible",
+        "c": "The DFA has exactly two states",
+        "d": "All states are accepting states"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Incorrect. A successful minimization retains the necessary states; removing all states would eliminate the automaton.",
+        "b": "Correct. The minimization process is complete when partition refinement reaches a fixed point where no further refinement can separate states.",
+        "c": "Incorrect. The final number of states depends on the language complexity, not a fixed number like two.",
+        "d": "Incorrect. The ratio of accepting to non-accepting states depends on the specific language being recognized."
       },
-      "correctAnswer": "a",
+      "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "If two different DFAs minimize to identical structures, what can you conclude?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "The original DFAs were incorrectly constructed",
+        "b": "The minimization algorithm failed",
+        "c": "The two DFAs are equivalent and accept the same language",
+        "d": "One DFA must be converted to match the other"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Incorrect. Different DFAs can legitimately represent the same language with different structures.",
+        "b": "Incorrect. Identical minimal forms indicate the algorithm worked correctly.",
+        "c": "Correct. When two DFAs minimize to identical structures, they are equivalent and accept exactly the same language.",
+        "d": "Incorrect. No conversion is needed; the minimization proves they're already equivalent."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
+    },
+    {
+      "question": "What advantage does a minimized DFA have over its non-minimized equivalent?",
+      "answers": {
+        "a": "It accepts a larger language",
+        "b": "It has faster state transitions",
+        "c": "It requires less memory and computational resources",
+        "d": "It can handle more complex input patterns"
+      },
+      "explanations": {
+        "a": "Incorrect. Minimization preserves the accepted language exactly; it doesn't expand it.",
+        "b": "Incorrect. While fewer states might lead to faster processing, this isn't the primary theoretical advantage.",
+        "c": "Correct. Minimized DFAs require fewer states, reducing memory usage and computational overhead in implementations.",
+        "d": "Incorrect. The complexity of patterns that can be handled is determined by the language class, not minimization."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "In the partition refinement process, what causes a partition to be split?",
+      "answers": {
+        "a": "When the partition becomes too large",
+        "b": "When states in the partition have different destination partitions for some input symbol",
+        "c": "When the partition contains both old and new states",
+        "d": "When states in the partition have different names"
+      },
+      "explanations": {
+        "a": "Incorrect. Partition size alone doesn't determine when splitting occurs.",
+        "b": "Correct. A partition must be split when its states transition to different partitions on the same input symbol, indicating different behaviors.",
+        "c": "Incorrect. The age or origin of states doesn't affect partitioning decisions.",
+        "d": "Incorrect. State names are arbitrary and don't influence the minimization algorithm."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "When comparing minimized DFAs for equivalence, what structural features must match?",
+      "answers": {
+        "a": "Only the number of states",
+        "b": "Only the transition function",
+        "c": "The number of states, transition structure, and accepting state pattern",
+        "d": "Only the accepting states"
+      },
+      "explanations": {
+        "a": "Incorrect. Matching state count is necessary but not sufficient for equivalence.",
+        "b": "Incorrect. Transition structure alone doesn't account for accepting states.",
+        "c": "Correct. For minimized DFAs to be equivalent, they must have the same number of states, identical transition patterns, and the same accepting state configuration.",
+        "d": "Incorrect. Accepting states alone don't determine equivalence without considering transitions."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What happens if you attempt to minimize a DFA that is already minimal?",
+      "answers": {
+        "a": "The algorithm will fail and report an error",
+        "b": "The DFA structure remains unchanged",
+        "c": "The DFA will be converted to a different form",
+        "d": "Additional states will be created for optimization"
+      },
+      "explanations": {
+        "a": "Incorrect. The algorithm will run successfully on any valid DFA.",
+        "b": "Correct. If a DFA is already minimal, the minimization algorithm will make no changes to its structure.",
+        "c": "Incorrect. Minimization preserves the DFA form and doesn't convert to other automaton types.",
+        "d": "Incorrect. Minimization never adds states; it only removes or merges them."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "In which applications is DFA minimization most crucial?",
+      "answers": {
+        "a": "Theoretical computer science research only",
+        "b": "Compiler design and lexical analysis",
+        "c": "Database query optimization",
+        "d": "Network protocol design"
+      },
+      "explanations": {
+        "a": "Incorrect. DFA minimization has many practical applications beyond theoretical research.",
+        "b": "Correct. DFA minimization is particularly important in compiler design for optimizing lexical analyzers and token recognition systems.",
+        "c": "Incorrect. While databases use optimization, DFA minimization isn't primarily used in query optimization.",
+        "d": "Incorrect. Network protocols typically don't rely heavily on DFA minimization techniques."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What is the relationship between the minimal DFA and the original DFA's language?",
+      "answers": {
+        "a": "The minimal DFA accepts a subset of the original language",
+        "b": "The minimal DFA accepts a superset of the original language",
+        "c": "The minimal DFA accepts exactly the same language as the original",
+        "d": "The minimal DFA accepts a completely different language"
+      },
+      "explanations": {
+        "a": "Incorrect. Minimization doesn't reduce the accepted language.",
+        "b": "Incorrect. Minimization doesn't expand the accepted language.",
+        "c": "Correct. The fundamental property of DFA minimization is that it preserves the accepted language exactly while reducing the number of states.",
+        "d": "Incorrect. Changing the language completely would violate the purpose of minimization."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "What computational complexity challenge does DFA minimization address?",
+      "answers": {
+        "a": "Converting between different automaton types",
+        "b": "Reducing space and time complexity of automaton simulation",
+        "c": "Increasing the expressiveness of regular languages",
+        "d": "Solving undecidable problems in automata theory"
+      },
+      "explanations": {
+        "a": "Incorrect. Minimization works within the DFA model; it doesn't convert between types.",
+        "b": "Correct. By reducing the number of states, minimization directly addresses space complexity and can improve the time complexity of simulating the automaton.",
+        "c": "Incorrect. Minimization doesn't change the expressiveness of regular languages.",
+        "d": "Incorrect. DFA minimization is a decidable problem and doesn't solve undecidable problems."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
     }
   ]
 }
